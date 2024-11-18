@@ -2,6 +2,8 @@
 
  param appName string
 
+ param environemnt string
+
  var appServicePropperties = {
        serverFarmId: appServicePlan.id
        httpsOnly: true
@@ -46,7 +48,7 @@ resource appService 'Microsoft.Web/sites@2022-09-01' = {
       kind: 'string'
       parent: appService
       properties: {
-          ASPNETCORE_ENVIRONMENT: 'dev'
+          ASPNETCORE_ENVIRONMENT: environemnt
       }
     }
 
@@ -65,6 +67,6 @@ resource appService 'Microsoft.Web/sites@2022-09-01' = {
    kind: 'string'
    parent: appServiceSlot
    properties: {
-     ASPNETCORE_ENVIRONMENT: 'dev'
+     ASPNETCORE_ENVIRONMENT: environemnt
    }
  }
